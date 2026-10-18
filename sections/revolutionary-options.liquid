@@ -1,0 +1,37 @@
+<section id="options" class="rev-section">
+  <div class="rev-title">
+    <div class="rev-eyebrow">{{ section.settings.eyebrow }}</div>
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.text }}</p>
+  </div>
+  <div class="rev-options">
+    {% for block in section.blocks %}
+      <a class="rev-option" href="#booking" {{ block.shopify_attributes }}>
+        {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.title }}">
+        {% else %}
+          <img src="{{ block.settings.fallback }}" alt="{{ block.settings.title }}">
+        {% endif %}
+        <div><small>{{ block.settings.label }}</small><h3>{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p></div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{"name":"Customer Service Options","settings":[
+{"type":"text","id":"eyebrow","label":"Eyebrow","default":"Choose Your Project"},
+{"type":"text","id":"heading","label":"Heading","default":"Easy options for every construction need."},
+{"type":"textarea","id":"text","label":"Text","default":"Customers can quickly choose the service they need and request a consultation."}],
+"blocks":[{"type":"option","name":"Option","settings":[
+{"type":"image_picker","id":"image","label":"Image"},
+{"type":"text","id":"fallback","label":"Fallback image URL","default":"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=900&auto=format&fit=crop"},
+{"type":"text","id":"label","label":"Label","default":"Popular"},
+{"type":"text","id":"title","label":"Title","default":"Kitchen Remodeling"},
+{"type":"textarea","id":"text","label":"Text","default":"Modern kitchen upgrades with premium materials and clean finishes."}]}],
+"presets":[{"name":"Customer Service Options","blocks":[
+{"type":"option","settings":{"label":"Home","title":"Home Remodeling","text":"Interior and exterior remodeling for a better living space.","fallback":"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=900&auto=format&fit=crop"}},
+{"type":"option","settings":{"label":"Luxury","title":"Kitchen & Bath","text":"Premium kitchen and bathroom transformations.","fallback":"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=900&auto=format&fit=crop"}},
+{"type":"option","settings":{"label":"Business","title":"Commercial Build-Out","text":"Tenant improvements, offices, shops, and commercial interiors.","fallback":"https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=900&auto=format&fit=crop"}},
+{"type":"option","settings":{"label":"Outdoor","title":"Exterior Upgrades","text":"Modern exterior construction, repair, and finish work.","fallback":"https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=900&auto=format&fit=crop"}}
+]}]}
+{% endschema %}

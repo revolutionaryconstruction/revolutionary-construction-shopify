@@ -1,25 +1,43 @@
 # Revolutionary Construction — Shopify Homepage Theme
 
-Homepage-focused Shopify Liquid theme for Revolutionary Construction LLC.
+Source code for the Revolutionary Construction LLC expanded Shopify homepage theme.
 
-## Structure
+## What's included
 
-- `layout/theme.liquid` — theme layout
-- `templates/index.json` — homepage sections
-- `sections/` — editable Shopify homepage sections
-- `assets/` — styles, scripts, and logo
+- Four-slide homepage hero (two hosted videos, two hosted images)
+- Services and customer option cards
+- Project gallery, testimonials, and construction process sections
+- Booking/contact section
+- Responsive CSS and lightweight JavaScript
+
+## Theme structure
+
+- `layout/theme.liquid` — Shopify theme shell
+- `templates/index.json` — homepage section order
+- `sections/` — customizable homepage sections
+- `assets/` — theme stylesheet and JavaScript
 - `config/` — theme settings
 
-## Shopify installation
+## Logo asset
 
-Download the theme source as ZIP, keeping `assets/`, `config/`, `layout/`, `sections/`, and `templates/` at the archive root. In Shopify Admin open **Online Store → Themes → Add theme → Upload zip file**. Preview and configure before publishing.
+The original supplied project ZIP includes `assets/revolutionary-logo.png`. This binary logo is **not yet in this GitHub repository**; upload it separately at that path to ensure the default logo renders. Alternatively, select a custom logo in the Shopify theme editor.
 
-**Note:** This is a homepage-focused starter theme, not a complete Shopify storefront. Additional templates (product, collection, cart, etc.) and live testing may be needed. Video and photo URLs are external placeholders.
+## Upload to Shopify
 
-## Development
+1. Compress the **contents** of the complete project folder into a ZIP, keeping `assets/`, `config/`, `layout/`, `sections/`, and `templates/` at the ZIP root.
+2. In Shopify Admin, open **Online Store → Themes → Add theme → Upload zip file** (wording may vary).
+3. Preview the uploaded theme before publishing. In Customize, replace sample imagery/video URLs and edit copy, contact information, and other settings.
+
+**Important:** This is a homepage-focused starter theme, not a complete storefront. Additional templates for product, collection, cart, search, and other pages may be needed. It has not been verified against a live Shopify store.
+
+## GitHub
+
+Repository: https://github.com/revolutionaryconstruction/revolutionary-construction-shopify
 
 ```bash
 git clone https://github.com/revolutionaryconstruction/revolutionary-construction-shopify.git
 ```
 
-Never commit Shopify credentials or secrets.
+## Notes
+
+Some default image and video URLs point to external services and can stop working; replace them with owned content. No Shopify credentials or store-specific secrets are included in the archive.

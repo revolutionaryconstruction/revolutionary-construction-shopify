@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "header": {
+      "type": "revolutionary-header"
+    },
+    "hero": {
+      "type": "revolutionary-hero"
+    },
+    "options": {
+      "type": "revolutionary-options"
+    },
+    "services": {
+      "type": "revolutionary-services"
+    },
+    "gallery": {
+      "type": "revolutionary-gallery"
+    },
+    "process": {
+      "type": "revolutionary-process"
+    },
+    "testimonials": {
+      "type": "revolutionary-testimonials"
+    },
+    "booking": {
+      "type": "revolutionary-booking"
+    },
+    "footer": {
+      "type": "revolutionary-footer"
+    }
+  },
+  "order": [
+    "header",
+    "hero",
+    "options",
+    "services",
+    "gallery",
+    "process",
+    "testimonials",
+    "booking",
+    "footer"
+  ]
+}
