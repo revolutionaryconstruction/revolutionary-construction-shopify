@@ -1,28 +1,24 @@
-name: NodeJS with Webpack
-
+name: Validate static site
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
-
+    branches: [main]
 jobs:
-  build:
+  validate:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
-
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Build
-      run: |
-        npm install
-        npx webpack
+      - uses: actions/checkout@v4
+      - name: Check Cloudflare Pages static files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s docs/index.html
+          test -s docs/privacy-policy/index.html
+          test -s docs/terms-of-service/index.html
+          test -s docs/404.html
+          grep -q 'Privacy Policy' docs/index.html
+          grep -q 'Terms of Service' docs/index.html
+          grep -q '14609 N Coral Gables Dr' docs/index.html
+          grep -q '+1 (602) 880-0757' docs/index.html
+          echo "Cloudflare Pages static site structure verified."
