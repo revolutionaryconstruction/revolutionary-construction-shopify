@@ -1,0 +1,20 @@
+<header class="rev-header">
+  <a class="rev-brand" href="{{ routes.root_url }}">
+    {% if section.settings.logo != blank %}
+      <img src="{{ section.settings.logo | image_url: width: 140 }}" alt="{{ shop.name }}">
+    {% else %}
+      <img src="{{ 'revolutionary-logo.png' | asset_url }}" alt="Revolutionary Construction LLC">
+    {% endif %}
+    <span>{{ section.settings.business_name }}</span>
+  </a>
+  <nav class="rev-nav">
+    <a href="#options">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#process">Process</a>
+    <a href="#booking">Booking</a>
+    <a href="tel:{{ section.settings.phone_link }}">Call Now</a>
+  </nav>
+</header>
+{% schema %}
+{"name":"Revolutionary Header","settings":[{"type":"image_picker","id":"logo","label":"Logo"},{"type":"text","id":"business_name","label":"Business name","default":"REVOLUTIONARY CONSTRUCTION LLC"},{"type":"text","id":"phone_link","label":"Phone link","default":"+16028800757"}],"presets":[{"name":"Revolutionary Header"}]}
+{% endschema %}

@@ -1,0 +1,35 @@
+<section class="rev-hero">
+  <div class="rev-slide active"><video autoplay muted loop playsinline><source src="{{ section.settings.video_1 }}" type="video/mp4"></video></div>
+  <div class="rev-slide"><video autoplay muted loop playsinline><source src="{{ section.settings.video_2 }}" type="video/mp4"></video></div>
+  <div class="rev-slide"><img src="{{ section.settings.image_3 }}" alt="Construction project"></div>
+  <div class="rev-slide"><img src="{{ section.settings.image_4 }}" alt="Luxury remodeling"></div>
+  <div class="rev-hero-content">
+    {% if section.settings.logo != blank %}
+      <img class="rev-hero-logo" src="{{ section.settings.logo | image_url: width: 420 }}" alt="Logo">
+    {% else %}
+      <img class="rev-hero-logo" src="{{ 'revolutionary-logo.png' | asset_url }}" alt="Revolutionary Construction LLC">
+    {% endif %}
+    <div class="rev-eyebrow">{{ section.settings.eyebrow }}</div>
+    <h1>{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.subheading }}</p>
+    <div class="rev-btns">
+      <a class="rev-btn primary" href="#booking">{{ section.settings.primary_button }}</a>
+      <a class="rev-btn" href="#options">{{ section.settings.secondary_button }}</a>
+    </div>
+  </div>
+  <div class="rev-dots"><span class="rev-dot active"></span><span class="rev-dot"></span><span class="rev-dot"></span><span class="rev-dot"></span></div>
+</section>
+{% schema %}
+{"name":"Revolutionary Multi Slide Hero","settings":[
+{"type":"image_picker","id":"logo","label":"Logo"},
+{"type":"text","id":"video_1","label":"Video slide 1 MP4","default":"https://cdn.coverr.co/videos/coverr-construction-site-1841/1080p.mp4"},
+{"type":"text","id":"video_2","label":"Video slide 2 MP4","default":"https://cdn.coverr.co/videos/coverr-working-on-a-construction-site-6348/1080p.mp4"},
+{"type":"text","id":"image_3","label":"Image slide 3 URL","default":"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1800&auto=format&fit=crop"},
+{"type":"text","id":"image_4","label":"Image slide 4 URL","default":"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1800&auto=format&fit=crop"},
+{"type":"text","id":"eyebrow","label":"Eyebrow","default":"Phoenix • Arizona • Premium Construction"},
+{"type":"text","id":"heading","label":"Heading","default":"Build Bold. Build Better."},
+{"type":"textarea","id":"subheading","label":"Subheading","default":"Luxury residential construction, remodeling, commercial build-outs, and project management delivered with precision, trust, and craftsmanship."},
+{"type":"text","id":"primary_button","label":"Primary button","default":"Book Consultation"},
+{"type":"text","id":"secondary_button","label":"Secondary button","default":"Explore Services"}],
+"presets":[{"name":"Revolutionary Multi Slide Hero"}]}
+{% endschema %}

@@ -1,0 +1,42 @@
+<section id="booking" class="rev-section">
+  <div class="rev-title"><div class="rev-eyebrow">Schedule Your Project</div><h2>Book a free consultation.</h2><p>Customers can choose a service and send project details directly through Shopify contact form.</p></div>
+  <div class="rev-booking-wrap">
+    <div class="rev-panel">
+      {% if section.settings.logo != blank %}<img src="{{ section.settings.logo | image_url: width: 320 }}" alt="Logo">{% else %}<img src="{{ 'revolutionary-logo.png' | asset_url }}" alt="Logo">{% endif %}
+      <h3>{{ section.settings.business_name }}</h3>
+      <p><strong>Address:</strong><br>{{ section.settings.address }}</p>
+      <p><strong>Phone:</strong><br><a href="tel:{{ section.settings.phone_link }}">{{ section.settings.phone_display }}</a></p>
+      <p><strong>Contact:</strong><br>{{ section.settings.contact_name }}</p>
+    </div>
+    <div class="rev-panel">
+      {% form 'contact', class: 'rev-form' %}
+        {% if form.posted_successfully? %}<p>Thank you. Your consultation request has been sent.</p>{% endif %}
+        {{ form.errors | default_errors }}
+        <input type="text" name="contact[name]" placeholder="Full Name" required>
+        <input type="tel" name="contact[phone]" placeholder="Phone Number" required>
+        <input type="email" name="contact[email]" placeholder="Email Address">
+        <select name="contact[project_type]" required>
+          <option value="">Choose Service</option>
+          <option>Home Remodeling</option>
+          <option>Kitchen Remodeling</option>
+          <option>Bathroom Remodeling</option>
+          <option>Commercial Build-Out</option>
+          <option>Exterior Construction</option>
+          <option>Repair / Other</option>
+        </select>
+        <textarea name="contact[body]" placeholder="Project details, address, budget, timeline"></textarea>
+        <button type="submit">Request Consultation</button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"Booking Form","settings":[
+{"type":"image_picker","id":"logo","label":"Logo"},
+{"type":"text","id":"business_name","label":"Business name","default":"REVOLUTIONARY CONSTRUCTION LLC"},
+{"type":"textarea","id":"address","label":"Address","default":"14609 N Coral Gables Dr, Phoenix, AZ 85023"},
+{"type":"text","id":"phone_display","label":"Phone display","default":"+1 (602) 880-0757"},
+{"type":"text","id":"phone_link","label":"Phone link","default":"+16028800757"},
+{"type":"text","id":"contact_name","label":"Contact name","default":"Mr. Jason"}],
+"presets":[{"name":"Booking Form"}]}
+{% endschema %}

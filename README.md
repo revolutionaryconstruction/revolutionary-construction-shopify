@@ -20,7 +20,11 @@ Source code for the Revolutionary Construction LLC expanded Shopify homepage the
 
 ## Logo asset
 
-The original supplied project ZIP includes `assets/revolutionary-logo.png`. This binary logo is **not yet in this GitHub repository**; upload it separately at that path to ensure the default logo renders. Alternatively, select a custom logo in the Shopify theme editor.
+The original supplied logo is now included at `assets/revolutionary-logo.png`.
+
+## Archived source upload
+
+The original expanded-homepage ZIP source is preserved under `source-archive/2026-10-31-upload/` without overwriting subsequent changes to the main theme, static preview, legal pages, or deployment configuration.
 
 ## Upload to Shopify
 

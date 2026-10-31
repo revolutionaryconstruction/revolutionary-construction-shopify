@@ -1,0 +1,35 @@
+<section id="projects" class="rev-section">
+  <div class="rev-title">
+    <div class="rev-eyebrow">{{ section.settings.eyebrow }}</div>
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.text }}</p>
+  </div>
+  <div class="rev-gallery">
+    {% for block in section.blocks %}
+      <article class="rev-project {% if forloop.first %}large{% endif %}" {{ block.shopify_attributes }}>
+        {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | image_url: width: 1200 }}" alt="{{ block.settings.title }}">
+        {% else %}
+          <img src="{{ block.settings.fallback }}" alt="{{ block.settings.title }}">
+        {% endif %}
+        <div class="rev-project-info"><small>{{ block.settings.category }}</small><h3>{{ block.settings.title }}</h3></div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{"name":"Expanded Project Gallery","settings":[
+{"type":"text","id":"eyebrow","label":"Eyebrow","default":"Featured Work"},
+{"type":"text","id":"heading","label":"Heading","default":"More images. More trust. Easier choices."},
+{"type":"textarea","id":"text","label":"Text","default":"Show customers different project styles so they can quickly choose what fits their needs."}],
+"blocks":[{"type":"project","name":"Project","settings":[{"type":"image_picker","id":"image","label":"Image"},{"type":"text","id":"fallback","label":"Fallback image URL","default":"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop"},{"type":"text","id":"category","label":"Category","default":"Residential"},{"type":"text","id":"title","label":"Title","default":"Luxury Home Remodel"}]}],
+"presets":[{"name":"Expanded Project Gallery","blocks":[
+{"type":"project","settings":{"category":"Residential","title":"Luxury Home Remodel","fallback":"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop"}},
+{"type":"project","settings":{"category":"Commercial","title":"Commercial Build-Out","fallback":"https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=900&auto=format&fit=crop"}},
+{"type":"project","settings":{"category":"Exterior","title":"Modern Exterior","fallback":"https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=900&auto=format&fit=crop"}},
+{"type":"project","settings":{"category":"Interior","title":"Premium Interior","fallback":"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=900&auto=format&fit=crop"}},
+{"type":"project","settings":{"category":"Kitchen","title":"Kitchen Upgrade","fallback":"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=900&auto=format&fit=crop"}},
+{"type":"project","settings":{"category":"Bathroom","title":"Bathroom Remodel","fallback":"https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=900&auto=format&fit=crop"}},
+{"type":"project","settings":{"category":"Design","title":"Modern Living Space","fallback":"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=900&auto=format&fit=crop"}}
+]}]}
+{% endschema %}
